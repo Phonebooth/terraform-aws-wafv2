@@ -142,3 +142,9 @@ variable "default_action" {
   description = "The action to perform if none of the rules contained in the WebACL match."
   default     = "allow"
 }
+
+variable "block_response_code" {
+  type        = number
+  description = "The HTTP status code returned for all Blocked requests"
+  default     = 403
+}

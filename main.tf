@@ -12,7 +12,11 @@ resource "aws_wafv2_web_acl" "main" {
 
     dynamic "block" {
       for_each = var.default_action == "block" ? [1] : []
-      content {}
+      content {
+        custom_response {
+          response_code = var.block_response_code
+        }
+      }
     }
   }
 
@@ -81,7 +85,11 @@ resource "aws_wafv2_web_acl" "main" {
 
         dynamic "block" {
           for_each = rule.value.action == "block" ? [1] : []
-          content {}
+          content {
+            custom_response {
+              response_code = var.block_response_code
+            }
+          }
         }
       }
 
@@ -113,7 +121,11 @@ resource "aws_wafv2_web_acl" "main" {
 
         dynamic "block" {
           for_each = rule.value.action == "block" ? [1] : []
-          content {}
+          content {
+            custom_response {
+              response_code = var.block_response_code
+            }
+          }
         }
       }
 
@@ -151,7 +163,11 @@ resource "aws_wafv2_web_acl" "main" {
 
         dynamic "block" {
           for_each = rule.value.action == "block" ? [1] : []
-          content {}
+          content {
+            custom_response {
+              response_code = var.block_response_code
+            }
+          }
         }
       }
 
@@ -208,7 +224,11 @@ resource "aws_wafv2_web_acl" "main" {
 
         dynamic "block" {
           for_each = rule.value.action == "block" ? [1] : []
-          content {}
+          content {
+            custom_response {
+              response_code = var.block_response_code
+            }
+          }
         }
       }
 
