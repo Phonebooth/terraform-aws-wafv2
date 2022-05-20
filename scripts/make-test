@@ -4,8 +4,8 @@ set -eu -o pipefail
 
 go_test_output="/tmp/go-test.out"
 
-
-go test -short -count 1 -v -timeout 90m github.com/trussworks/terraform-aws-wafv2/test/... | tee "${go_test_output}"
+# JMS - I disabled this because it creates real resources using default creds. Too dangerous to leave in
+#go test -short -count 1 -v -timeout 90m github.com/trussworks/terraform-aws-wafv2/test/... | tee "${go_test_output}"
 
 # Check if we are running tests inside of CircleCI by checking for a $CIRCLECI
 # environment variable. The dash after $CIRCLECI substitutes a null value if
