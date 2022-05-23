@@ -12,6 +12,7 @@ variable "managed_rules" {
   type = list(object({
     name            = string
     priority        = number
+    block_priority  = number
     override_action = string
     excluded_rules  = list(string)
   }))
@@ -20,37 +21,43 @@ variable "managed_rules" {
     {
       name            = "AWSManagedRulesCommonRuleSet",
       priority        = 10
-      override_action = "none"
+      block_priority  = 11
+      override_action = "count"
       excluded_rules  = []
     },
     {
       name            = "AWSManagedRulesAmazonIpReputationList",
       priority        = 20
-      override_action = "none"
+      block_priority  = 21
+      override_action = "count"
       excluded_rules  = []
     },
     {
       name            = "AWSManagedRulesKnownBadInputsRuleSet",
       priority        = 30
-      override_action = "none"
+      block_priority  = 31
+      override_action = "count"
       excluded_rules  = []
     },
     {
       name            = "AWSManagedRulesSQLiRuleSet",
       priority        = 40
-      override_action = "none"
+      block_priority  = 41
+      override_action = "count"
       excluded_rules  = []
     },
     {
       name            = "AWSManagedRulesLinuxRuleSet",
       priority        = 50
-      override_action = "none"
+      block_priority  = 51
+      override_action = "count"
       excluded_rules  = []
     },
     {
       name            = "AWSManagedRulesUnixRuleSet",
       priority        = 60
-      override_action = "none"
+      block_priority  = 61
+      override_action = "count"
       excluded_rules  = []
     }
   ]

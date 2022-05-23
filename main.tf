@@ -67,6 +67,35 @@ resource "aws_wafv2_web_acl" "main" {
   }
 
   dynamic "rule" {
+    for_each = var.managed_rules
+    content {
+      name     = "${rule.value.name}-BLOCK"
+      priority = rule.value.block_priority
+
+      action {
+        block {
+          custom_response {
+            response_code = var.block_response_code
+          }
+        }
+      }
+
+      statement {
+        label_match_statement {
+          scope = "NAMESPACE"
+          key   = "awswaf:managed:aws:${rule.value.name}:"
+        }
+      }
+
+      visibility_config {
+        cloudwatch_metrics_enabled = true
+        metric_name                = "${rule.value.name}-BLOCK"
+        sampled_requests_enabled   = true
+      }
+    }
+  }
+
+  dynamic "rule" {
     for_each = var.ip_sets_rule
     content {
       name     = rule.value.name
