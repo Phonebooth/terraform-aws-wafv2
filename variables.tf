@@ -15,6 +15,7 @@ variable "managed_rules" {
     block_priority  = number
     override_action = string
     excluded_rules  = list(string)
+    label_name      = string
   }))
   description = "List of Managed WAF rules."
   default = [
