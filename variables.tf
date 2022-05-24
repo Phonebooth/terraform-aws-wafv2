@@ -24,6 +24,7 @@ variable "managed_rules" {
       block_priority  = 11
       override_action = "count"
       excluded_rules  = []
+      label_name      = "core-rule-set"
     },
     {
       name            = "AWSManagedRulesAmazonIpReputationList",
@@ -31,6 +32,7 @@ variable "managed_rules" {
       block_priority  = 21
       override_action = "count"
       excluded_rules  = []
+      label_name      = "amazon-ip-list"
     },
     {
       name            = "AWSManagedRulesKnownBadInputsRuleSet",
@@ -38,6 +40,7 @@ variable "managed_rules" {
       block_priority  = 31
       override_action = "count"
       excluded_rules  = []
+      label_name      = "known-bad-inputs"
     },
     {
       name            = "AWSManagedRulesSQLiRuleSet",
@@ -45,6 +48,7 @@ variable "managed_rules" {
       block_priority  = 41
       override_action = "count"
       excluded_rules  = []
+      label_name      = "sql-database"
     },
     {
       name            = "AWSManagedRulesLinuxRuleSet",
@@ -52,6 +56,7 @@ variable "managed_rules" {
       block_priority  = 51
       override_action = "count"
       excluded_rules  = []
+      label_name      = "linux-os"
     },
     {
       name            = "AWSManagedRulesUnixRuleSet",
@@ -59,6 +64,7 @@ variable "managed_rules" {
       block_priority  = 61
       override_action = "count"
       excluded_rules  = []
+      label_name      = "posix-os"
     }
   ]
 }

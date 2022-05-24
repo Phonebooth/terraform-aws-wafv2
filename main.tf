@@ -83,7 +83,7 @@ resource "aws_wafv2_web_acl" "main" {
       statement {
         label_match_statement {
           scope = "NAMESPACE"
-          key   = "awswaf:managed:aws:${rule.value.name}:"
+          key   = "awswaf:managed:aws:${rule.value.label_name}:"
         }
       }
 
